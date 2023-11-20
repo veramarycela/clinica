@@ -30,7 +30,6 @@ class Facturas(models.Model):
     _name='account.move'
     _inherit = 'account.move'
 
-      
     x_clinica_paciente_id = fields.Many2one("clinica.paciente")
     
     x_direccion_ci_paciente = fields.Char(compute="_compute_x_direccion_ci_paciente", store=True)

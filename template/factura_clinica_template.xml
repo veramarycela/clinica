@@ -3,23 +3,30 @@
         <template id="factura_clinica_template">
             <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-            <t t-call="web.external_layout">
+            <!--<t t-call="web.external_layout">-->
                 <style>
+                    @page {
+                                size: letter landscape; /* Cambia 'letter' por 'half-letter' para media carta */
+                                  text-align: justify;  
+                    }
                     .table 
                     {
                         font-size: 10px; /* Tamaño de letra más pequeño */
                         line-height: 1; /* Interlineado más pequeño */
+                        
                     }
-                    /* custom_styles.css */
+                    .espacio-columnas td {
+                        padding-right: 30px; /* Ajusta según tus necesidades */
+                    }
                     .paragraph-style 
                     {
                         line-height: 1.5; /* Establece el interlineado a 1.5 veces el tamaño del texto */
                         font-size: 14px; /* Tamaño de fuente */
-                        color: #333; /* Color del texto */
-                    /* Otros estilos de párrafo si es necesario */
-                    }                  
+                        color: #333; /* Color del texto */    
+                                    
+                    }                                   
                 </style>
-                <div class="page">
+                <div class="page" >
                     <h2>Factura</h2>
                 
                     <p>CLIENTE</p>
@@ -57,7 +64,7 @@
                             </t>
                         </tbody>
                     </table>
-                    <table>
+                    <table class="espacio-columnas">
                         <tr>
                             <td>                                
                                 <p>Total a Pagar Bs F.: <span t-field="o.amount_total"/></p>
@@ -66,6 +73,10 @@
                                 <p>Total a Pagar $: <span t-field="o.x_clinica_total_dolares"/></p>
                             </td>
                         </tr>
+                    </table>
+                    <br></br>
+                    <br></br>
+                    <table>
                         <tr >
                             <td>
                                 <p>Tasa de Cambio USD: <span t-field="o.x_clinica_tasa_dolar"/></p>
@@ -75,7 +86,7 @@
                 </div>
             </t>
             </t>
-            </t>
+        <!--    </t>-->
         </template>
     </data>
 </odoo>

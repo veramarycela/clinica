@@ -16,6 +16,7 @@
     'data': [
             'views/views.xml', 
             'views/views_clinica_cliente_paciente.xml',
+            'views/views_clinica_partner.xml',
             'security/ir.model.access.csv',
             'report/factura_clinica_reporte.xml',
             'template/factura_clinica_template.xml',

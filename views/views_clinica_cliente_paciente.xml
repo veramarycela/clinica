@@ -7,7 +7,7 @@
     		<field name="arch" type="xml">
 				<xpath expr="//field[@name='partner_id']" position="after">				
 					<field name="x_direccion_ci_paciente" invisible="1"/>
-					<field name="x_clinica_paciente_id" string="Paciente"/>
+					<field name="x_clinica_paciente_id" string="Paciente" domain="[('aseguradora', '=', partner_id)]"/>
 					<field name="x_direccion_ci_paciente" string="" attrs="{'invisible': [('x_clinica_paciente_id', '=', False)], 'string': ' '}"/>              	                	
 				</xpath>
 				<xpath expr="//notebook//page//field//field[@name='price_unit'][last()]"  position="after">				
@@ -17,10 +17,10 @@
 					<field name="x_clinica_subtotal_dolares" string="$"/>
 				</xpath>
 				<xpath expr="//field[@name='tax_totals_json']"  position="after">				
-					<field name="x_clinica_total_dolares" string="Total $"/>
+					<field name="x_clinica_total_dolares" string="Total Divisa" style="color: green; text-align: left; font-weight: bold;"/>
 				</xpath>
-					<xpath expr="//field[@name='narration']"  position="after">				
-					<field name="x_clinica_tasa_dolar" string="Tasa de Cambio USD:"/>
+				<xpath expr="//field[@name='narration']"  position="after">				
+					<field name="x_clinica_tasa_dolar" string="Tasa de Cambio USD:" style="text-align: right; font-weight: bold;"/>
 				</xpath>
                 <xpath expr="//button[@name='action_invoice_sent']" position="attributes">
                     <attribute name="invisible">1</attribute>
