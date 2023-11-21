@@ -8,8 +8,7 @@
                 <style>
                     @page {
                                 size: letter landscape; /* Cambia 'letter' por 'half-letter' para media carta */
-                                text-align: justify;  
-                                margin: 20px;
+                                text-align: justify;                                  
                     }
                     .table 
                     {
@@ -40,7 +39,7 @@
                      <p class="paragraph-style"><span t-field="o.partner_id.name"/>
                      Direccion: <span t-field="o.partner_id.city"/>
                      Telefono: <span t-field="o.partner_id.phone_sanitized"/>
-                     Rif: <span t-field="o.partner_id.name"/></p>
+                     Rif: <span t-field="o.partner_id.vat"/></p>
                      <p>PACIENTE</p>
                      <p class="paragraph-style"><span t-field="o.x_clinica_paciente_id.name"/>
                      Direccion: <span t-field="o.x_clinica_paciente_id.direccion"/>
