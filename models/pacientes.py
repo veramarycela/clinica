@@ -137,3 +137,4 @@ class DetalleFactura(models.Model):
             else:
                 # Si la moneda es USD, x_clinica_subtotal_dolares es igual a price_subtotal
                 record.x_clinica_subtotal_dolares = record.price_subtotal
+ 

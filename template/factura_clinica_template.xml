@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <template id="factura_clinica_template">
@@ -7,16 +8,22 @@
                 <style>
                     @page {
                                 size: letter landscape; /* Cambia 'letter' por 'half-letter' para media carta */
-                                  text-align: justify;  
+                                text-align: justify;  
+                                margin: 20px;
                     }
                     .table 
                     {
-                        font-size: 10px; /* Tamaño de letra más pequeño */
+                        font-size: 18px; /* Tamaño de letra más pequeño */
                         line-height: 1; /* Interlineado más pequeño */
+                        padding-right: 50px;
                         
                     }
+                    .table td {
+                        text-align: right; /* Alinea el texto a la derecha dentro de las celdas */
+                    }
                     .espacio-columnas td {
-                        padding-right: 30px; /* Ajusta según tus necesidades */
+                        padding-right: 80px; /* Ajusta según tus necesidades */
+                        font-size: 18px;
                     }
                     .paragraph-style 
                     {
@@ -27,8 +34,8 @@
                     }                                   
                 </style>
                 <div class="page" >
-                    <h2>Factura</h2>
-                
+                    <h2>Factura Nro <span t-field="o.name"/> Fecha: <span t-field="o.date"/> </h2>                    
+                    <p></p>
                     <p>CLIENTE</p>
                      <p class="paragraph-style"><span t-field="o.partner_id.name"/>
                      Direccion: <span t-field="o.partner_id.city"/>
@@ -56,21 +63,23 @@
                                 <tr>
                                     <td><span t-field="line.product_id.name"/></td>
                                     <td><span t-field="line.price_unit"/></td>
-                                    <td><span t-field="line.x_clinica_precio_dolares"/></td>
+                                    <td><span t-field="line.x_clinica_precio_dolares" t-options='{"widget": "float", "precision": 2}'/></td>
                                     <td><span t-field="line.quantity"/></td>
-                                    <td><span t-field="line.price_subtotal"/></td>
-                                    <td><span t-field="line.x_clinica_subtotal_dolares"/></td>
-                                </tr>
+                                    <td><span t-field="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/></td>
+                                    <td><span t-field="line.x_clinica_subtotal_dolares" t-options='{"widget": "float", "precision": 2}'/></td>
+                                </tr>                                
                             </t>
                         </tbody>
                     </table>
+                     <br></br>                    
                     <table class="espacio-columnas">
                         <tr>
                             <td>                                
-                                <p>Total a Pagar Bs F.: <span t-field="o.amount_total"/></p>
+                                <p>Total a Pagar USD: <span style="font-weight: bold;" t-field="o.x_clinica_total_dolares" t-options='{"widget": "float", "precision": 2}'/></p>
+                                
                             </td>                            
                             <td>
-                                <p>Total a Pagar $: <span t-field="o.x_clinica_total_dolares"/></p>
+                                <p>Total a Pagar Bs F.: <span style="font-weight: bold;" t-field="o.amount_total" t-options='{"widget": "float", "precision": 2}'/></p>
                             </td>
                         </tr>
                     </table>
@@ -79,7 +88,7 @@
                     <table>
                         <tr >
                             <td>
-                                <p>Tasa de Cambio USD: <span t-field="o.x_clinica_tasa_dolar"/></p>
+                                <p>Tasa de Cambio USD: <span t-field="o.x_clinica_tasa_dolar" t-options='{"widget": "float", "precision": 2}'/></p>
                             </td>
                         </tr>
                     </table>
