@@ -7,7 +7,7 @@
             <!--<t t-call="web.external_layout">-->
                 <style>
                     @page {
-                                size: letter landscape; /* Cambia 'letter' por 'half-letter' para media carta */
+                                size: half-lette landscape; /* Cambia 'letter' por 'half-letter' para media carta */
                                 text-align: justify;                                  
                     }
                     .table 
